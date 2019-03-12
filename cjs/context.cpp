@@ -616,7 +616,7 @@ _gjs_context_schedule_gc_internal(GjsContext *js_context,
     if (js_context->auto_gc_id > 0)
         return;
 
-    js_context->auto_gc_id = g_idle_add_full(G_PRIORITY_LOW,
+    js_context->auto_gc_id = g_idle_add_full(400,
                                              trigger_gc_if_needed,
                                              js_context, NULL);
 }
