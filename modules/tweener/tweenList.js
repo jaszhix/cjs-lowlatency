@@ -50,7 +50,7 @@ TweenList.prototype = {
         this.transitionParams = transitionParams;
 
         /* Other default information */
-        this.properties = new Object();
+        this.properties = {};
         this.isPaused = false;
         this.timePaused = undefined;
         this.isCaller = false;
@@ -63,7 +63,7 @@ TweenList.prototype = {
     clone: function(omitEvents) {
         var tween = new TweenList(this.scope, this.timeStart, this.timeComplete, this.userFrames,
                                   this.transition, this.transitionParams);
-        tween.properties = new Array();
+        tween.properties = [];
         for (let name in this.properties) {
             tween.properties[name] = this.properties[name];
         }
@@ -101,10 +101,3 @@ TweenList.prototype = {
     }
 };
 
-function makePropertiesChain(obj) {
-    /* Tweener has a bunch of code here to get all the properties of all
-     * the objects we inherit from (the objects in the 'base' property).
-     * I don't think that applies to JavaScript...
-     */
-    return obj;
-}
